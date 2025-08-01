@@ -53,6 +53,34 @@ h1, h2, p {
   transition: all 0.5s ease;
   z-index: 0;
 }
+.neon-text {
+  font-size: 48px;
+  color: #39ff14;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  text-shadow:
+    0 0 5px #39ff14,
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 40px #39ff14;
+  animation: flicker 2s infinite alternate;
+  margin-top: 50px;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #39ff14,
+      0 0 10px #39ff14,
+      0 0 20px #39ff14,
+      0 0 40px #39ff14;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
 
 .btn:hover::before {
   left: 0;
