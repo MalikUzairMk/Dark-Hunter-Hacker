@@ -38,7 +38,7 @@
   color: white;
 }
 
-/* Hover Effect for all buttons */
+/* ✅ Gold Hover Effect for All Buttons */
 .btn:hover {
   background-color: gold !important;
   color: black !important;
