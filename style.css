@@ -1,111 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-body {
-  font-family: 'Share Tech Mono', monospace;
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #00ff9f;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-header {
-  padding: 40px 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid #00ff9f;
-}
-
-h1, h2, p {
-  text-shadow: 0 0 5px #00ff9f;
-}
-
+/* Common button style */
 .btn {
-  background: transparent;
-  color: #00ff9f;
-  padding: 12px 24px;
-  border: 2px solid #00ff9f;
-  border-radius: 20px;
-  text-decoration: none;
-  margin: 10px;
   display: inline-block;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px #00ff9f;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #00ff9f;
-  transition: all 0.5s ease;
-  z-index: 0;
-}
-
-.btn:hover::before {
-  left: 0;
-}
-
-.btn:hover {
-  color: black;
-  box-shadow: 0 0 20px #00ff9f, 0 0 40px #00ff9f;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px;
-}
-
-.gate {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: monospace;
+  border-radius: 12px;
+  border: none;
   margin: 10px;
-  border: 1px solid #00ff9f;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  box-shadow: 0 0 10px #00ff9f;
-  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #444;
 }
 
-.gate img {
-  width: 300px;
-  height: auto;
-  border: 2px solid #00ff9f;
-  border-radius: 10px;
+/* Button color variants */
+.btn.red {
+  background-color: #c0392b;
+  color: white;
+}
+.btn.blue {
+  background-color: #2980b9;
+  color: white;
+}
+.btn.green {
+  background-color: #27ae60;
+  color: white;
+}
+.btn.black {
+  background-color: black;
+  color: #00ff00;
+}
+.btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+.btn.email {
+  background-color: #e67e22;
+  color: white;
 }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 10px #00ff9f;
-  border-radius: 15px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #00ff9f;
-  background: black;
-  color: #00ff9f;
-  border-radius: 10px;
-}
-
-input::placeholder, textarea::placeholder {
-  color: #00ff9f;
-  opacity: 0.7;
+/* Hover Effect for all buttons */
+.btn:hover {
+  background-color: gold !important;
+  color: black !important;
+  box-shadow: 0 0 20px gold, 0 0 40px gold;
+  transform: scale(1.05);
 }
