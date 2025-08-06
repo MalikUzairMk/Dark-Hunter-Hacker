@@ -8,101 +8,119 @@
         margin: 0; padding: 0; height: 100%;
         font-family: Arial, sans-serif;
         overflow: hidden; text-align: center;
-        color: white; background: black;
+        color: white;
+        background: radial-gradient(circle at top left, red, white, blue);
         border: 8px solid;
-        border-image: linear-gradient(45deg, red, yellow, pink, purple) 1;
+        border-image: linear-gradient(45deg, red, white, blue) 1;
         animation: glowBorder 3s linear infinite;
     }
     @keyframes glowBorder {
-        0% { border-image-source: linear-gradient(45deg, red, yellow, pink, purple); }
-        50% { border-image-source: linear-gradient(45deg, yellow, pink, purple, red); }
-        100% { border-image-source: linear-gradient(45deg, red, yellow, pink, purple); }
+        0% { border-image-source: linear-gradient(45deg, red, white, blue); }
+        50% { border-image-source: linear-gradient(45deg, blue, red, white); }
+        100% { border-image-source: linear-gradient(45deg, red, white, blue); }
     }
 
-    .slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3; background-size: cover; background-position: center; animation: slideShow 30s infinite; }
-    @keyframes slideShow {
-        0%,20%{background-image:url('https://i.ibb.co/9qvRkz3/boy.jpg');}
-        25%,45%{background-image:url('https://i.ibb.co/Wf6w3WR/girl.jpg');}
-        50%,70%{background-image:url('https://i.ibb.co/NnTgK9v/love1.jpg');}
-        75%,100%{background-image:url('https://i.ibb.co/4T6mVmF/love2.jpg');}
+    h1 {
+        font-size: 3.5em;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 4px solid white;
+        width: 0;
+        margin: 20px auto;
+        animation: typing 6s steps(40,end) forwards, blink 0.6s step-end infinite;
+        background: linear-gradient(to right, red, white, blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px white;
     }
-
-    h1 { font-size: 2.5em; overflow: hidden; white-space: nowrap; border-right: 4px solid white; width: 0; margin: 20px auto; animation: typing 6s steps(40,end) forwards, blink 0.6s step-end infinite; text-shadow: 0 0 10px red, 0 0 20px pink; }
     @keyframes typing { to { width: 100%; } }
     @keyframes blink { 50% { border-color: transparent; } }
 
-    .dp-container { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 10px; }
-    .dp { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 0 20px pink, 0 0 40px red; position: relative; }
-    .dp::after { content: ""; position: absolute; top: -5px; left: -5px; width: 190px; height: 190px; border-radius: 50%; border: 2px dashed gold; animation: spin 5s linear infinite; }
+    .dp-container { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 20px; }
+    .dp { width: 400px; height: 400px; border-radius: 50%; object-fit: cover; border: 6px solid white; box-shadow: 0 0 25px pink, 0 0 50px red; position: relative; }
+    .dp::after { content: ""; position: absolute; top: -6px; left: -6px; width: 312px; height: 312px; border-radius: 50%; border: 3px dashed gold; animation: spin 5s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .heart-3d { font-size: 60px; animation: heartbeat 1s infinite; margin-top: 15px; }
+    .heart-3d { font-size: 80px; animation: heartbeat 1s infinite; margin-top: 15px; }
     @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
 
-    .quotes { font-size: 1.5em; margin-top: 15px; font-style: italic; text-shadow: 0 0 10px pink; }
+    .quotes { font-size: 2em; margin-top: 20px; font-style: italic; text-shadow: 0 0 10px pink; }
 
-    .floating-heart { position: fixed; font-size: 20px; color: red; animation: floatHeart 5s linear infinite; }
-    @keyframes floatHeart { 0% { transform: translateY(100vh); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
+    .btn { margin-top: 20px; font-size: 2em; padding: 15px 45px; border: none; cursor: pointer; border-radius: 15px; color: white; background: linear-gradient(to right, red, white, blue); box-shadow: 0 0 25px pink; }
+    #noBtn { position: absolute; }
 
-    .star { position: fixed; top: -10px; color: yellow; font-size: 15px; animation: starFall linear infinite; }
+    .romantic-btn {
+        display: block;
+        margin: 20px auto;
+        font-size: 2em;
+        padding: 18px 50px;
+        background-color: yellow;
+        color: black;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    .star { position: fixed; top: -10px; color: white; font-size: 15px; animation: starFall linear infinite; }
     @keyframes starFall { to { transform: translateY(110vh); opacity: 0; } }
-
-    .balloon { position: fixed; bottom: -100px; font-size: 30px; animation: floatUp 8s linear infinite; }
-    @keyframes floatUp { to { transform: translateY(-120vh); } }
 
     .rose { position: fixed; top: -50px; font-size: 30px; animation: roseFall 6s linear infinite; }
     @keyframes roseFall { to { transform: translateY(110vh) rotate(360deg); } }
 
-    .btn { margin-top: 20px; font-size: 1.5em; padding: 12px 35px; border: none; cursor: pointer; border-radius: 15px; color: white; background: red; box-shadow: 0 0 20px pink; }
-    #noBtn { position: absolute; }
+    /* USA Balloons */
+    .balloon {
+        position: fixed;
+        bottom: -100px;
+        font-size: 40px;
+        animation: floatUp 8s linear infinite;
+    }
+    @keyframes floatUp { to { transform: translateY(-120vh); } }
 
-    .gift-box { width: 100px; height: 100px; background: gold; margin: 20px auto; position: relative; cursor: pointer; animation: bounce 1s infinite; }
-    .gift-box::before, .gift-box::after { content: ""; position: absolute; background: red; }
-    .gift-box::before { width: 20px; height: 100%; left: 40px; }
-    .gift-box::after { height: 20px; width: 100%; top: 40px; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    /* Gift Box Animation */
+    .gift-box-popup {
+        display: none;
+        position: fixed;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 15px;
+        width: 450px;
+        box-shadow: 0 0 20px gold;
+        text-align: center;
+    }
+    .gift-box-popup h2 { color: red; }
 
-    .sparkle { position: fixed; pointer-events: none; animation: fadeOut 1s forwards; }
-    @keyframes fadeOut { to { opacity: 0; transform: scale(0.5); } }
-
-    /* Love Letter Popup */
-    .letter { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: black; padding: 20px; border-radius: 10px; width: 300px; display: none; box-shadow: 0 0 20px pink; }
-    .letter h2 { color: red; }
-    .letter button { margin-top: 10px; padding: 8px 20px; }
-
-    /* Name in Stars */
-    .starName { position: fixed; top: 20%; left: 50%; transform: translateX(-50%); font-size: 3em; color: gold; text-shadow: 0 0 10px white, 0 0 20px yellow; animation: twinkle 2s infinite; }
-    @keyframes twinkle { 50% { opacity: 0.5; } }
+    .count {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
 </style>
 </head>
 <body>
 
-<div class="slideshow"></div>
-<div class="starName">Aliya ❤️ Uzair</div>
-
 <h1>Aliya Malik ❤️ MãLïK Uzair Mk</h1>
 
 <div class="dp-container">
-    <img src="https://i.ibb.co/Swqw6mGp/ic-launcher.jpg" class="dp">
-    <img src="https://i.ibb.co/fYkGCNNC/20250324-213922.pngg" class="dp">
+    <img src="https://i.ibb.co/9qvRkz3/boy.jpg" class="dp">
+    <img src="https://i.ibb.co/Wf6w3WR/girl.jpg" class="dp">
 </div>
 
 <div class="heart-3d">❤️</div>
 <div class="quotes" id="quoteBox">Love is life...</div>
 
-<div class="gift-box" onclick="openGift()"></div>
-
-<div class="letter" id="loveLetter">
-    <h2>💌 My Love Letter 💌</h2>
-    <p>Aliya, tum meri zindagi ka sabse khoobsurat hissa ho ❤️ Har din tumse aur zyada pyaar hota hai. Will you be mine forever?</p>
-    <button onclick="closeLetter()">Close</button>
-</div>
-
 <button class="btn" onclick="showProposal()">Click to See My Question</button>
+<button class="romantic-btn" onclick="openGiftForYou()">🎁 Gift for You</button>
 
-<audio id="bgMusic" autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-</audio>
+<div id="giftBox" class="gift-box-popup">
+    <h2>🎁 Surprise Gift 🎁</h2>
+    <div class="count">⭐ Stars: <span id="starsCount">0</span></div>
+    <div class="count">❤️ Hearts: <span id="heartsCount">0</span></div>
+    <div class="count">👥 Followers: <span id="followersCount">0</span></div>
+    <p style="font-size:1.2em; margin-top:10px;">You are my forever and ever ❤️</p>
+    <button onclick="closeGift()">Close</button>
+</div>
 
 <script>
 let quotes = [
@@ -123,8 +141,7 @@ function showProposal() {
     yesBtn.innerText = "Yes ❤️";
     yesBtn.className = "btn";
     yesBtn.onclick = () => {
-        launchCelebration();
-        alert("💋 Kiss & Love Forever! 🎆 Yay! I love you Aliya Malik ❤️");
+        alert("💋 Kiss & Love Forever! 🎆💋I love you Aliya Malik ❤️");
     };
     document.body.appendChild(yesBtn);
 
@@ -151,64 +168,51 @@ function showProposal() {
     btnTexts.forEach(b => {
         let rb = document.createElement("button");
         rb.innerText = b.text;
-        rb.style.display = "block";
-        rb.style.margin = "15px auto";
-        rb.style.fontSize = "1.8em";
-        rb.style.padding = "15px 40px";
-        rb.style.backgroundColor = "yellow";
-        rb.style.color = "black";
-        rb.style.border = "none";
-        rb.style.borderRadius = "15px";
-        rb.style.cursor = "pointer";
+        rb.className = "romantic-btn";
         rb.onclick = () => alert(b.msg);
         document.body.appendChild(rb);
     });
 }
 
-function launchCelebration() {
-    let duration = 3 * 1000;
-    let end = Date.now() + duration;
-    (function frame() {
-        for (let i = 0; i < 10; i++) {
-            let confetti = document.createElement("div");
-            confetti.style.position = "fixed";
-            confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.top = "-10px";
-            confetti.style.fontSize = "20px";
-            confetti.innerHTML = "🎉";
-            confetti.style.animation = "floatUp 3s linear";
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 3000);
-        }
-        let heart = document.createElement("div");
-        heart.className = "floating-heart";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.innerHTML = "💥";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 2000);
-        if (Date.now() < end) requestAnimationFrame(frame);
-    }());
+function openGiftForYou(){
+    document.getElementById("giftBox").style.display = "block";
+    let stars = 0, hearts = 0, followers = 0;
+    let starsInt = setInterval(()=>{ if(stars<100){ stars++; document.getElementById("starsCount").innerText=stars; }},20);
+    let heartsInt = setInterval(()=>{ if(hearts<500){ hearts++; document.getElementById("heartsCount").innerText=hearts; }},10);
+    let followersInt = setInterval(()=>{ if(followers<1000){ followers++; document.getElementById("followersCount").innerText=followers; }},5);
+    // extra balloons + roses
+    for(let i=0;i<10;i++){
+        setTimeout(()=>{ spawnBalloon(); spawnRose(); },i*200);
+    }
+}
+function closeGift(){
+    document.getElementById("giftBox").style.display = "none";
 }
 
-function openGift(){
-    document.getElementById("loveLetter").style.display = "block";
+function spawnBalloon(){
+    let b=document.createElement("div");
+    b.className="balloon";
+    let balloonTypes = ["🎈", "🇺🇸"];
+    b.innerHTML = balloonTypes[Math.floor(Math.random()*balloonTypes.length)];
+    b.style.left = Math.random()*100+"vw";
+    b.style.color = ["red", "white", "blue"][Math.floor(Math.random()*3)];
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),8000);
 }
-function closeLetter(){
-    document.getElementById("loveLetter").style.display = "none";
+function spawnRose(){
+    let r=document.createElement("div");
+    r.className="rose";
+    r.innerHTML="🌹";
+    r.style.left=Math.random()*100+"vw";
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(),6000);
 }
 
-setInterval(() => { let h=document.createElement("div");h.className="floating-heart";h.innerHTML="❤️";h.style.left=Math.random()*100+"vw";document.body.appendChild(h);setTimeout(()=>h.remove(),5000);},500);
-setInterval(() => { let b=document.createElement("div");b.className="balloon";b.innerHTML="🎈";b.style.left=Math.random()*100+"vw";document.body.appendChild(b);setTimeout(()=>b.remove(),8000);},800);
+/* Stars and Roses auto */
 setInterval(() => { let s=document.createElement("div");s.className="star";s.innerHTML="⭐";s.style.left=Math.random()*100+"vw";document.body.appendChild(s);setTimeout(()=>s.remove(),5000);},600);
-setInterval(() => { let r=document.createElement("div");r.className="rose";r.innerHTML="🌹";r.style.left=Math.random()*100+"vw";document.body.appendChild(r);setTimeout(()=>r.remove(),6000);},700);
-
-document.addEventListener("mousemove", function(e){
-    let sp=document.createElement("div");
-    sp.className="sparkle"; sp.innerHTML="✨";
-    sp.style.left=e.pageX+"px"; sp.style.top=e.pageY+"px";
-    document.body.appendChild(sp);
-    setTimeout(()=>sp.remove(),1000);
-});
+setInterval(spawnRose,700);
+/* USA Balloons auto */
+setInterval(spawnBalloon,1000);
 </script>
 </body>
 </html>
