@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aliya Malik ❤️ MãLïK Uzair Mk</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+    /* Video Background */
+    video {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    /* Heading */
+    h1 {
+        font-size: 3em;
+        text-shadow: 0 0 10px red, 0 0 20px pink, 0 0 30px red;
+        animation: glow 2s infinite alternate;
+        margin-top: 10px;
+    }
+    @keyframes glow {
+        from { text-shadow: 0 0 10px red, 0 0 20px pink; }
+        to { text-shadow: 0 0 30px pink, 0 0 50px red; }
+    }
+    /* DP Container */
+    .dp-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .dp {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 0 30px pink;
+    }
+    .heart-symbol {
+        font-size: 4em;
+        animation: heartbeat 1s infinite alternate;
+    }
+    @keyframes heartbeat {
+        from { transform: scale(1); }
+        to { transform: scale(1.3); color: red; }
+    }
+    /* Message */
+    .message {
+        font-size: 1.8em;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeIn 3s forwards 2s;
+    }
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    /* Buttons */
+    .btn {
+        margin-top: 30px;
+        font-size: 1.5em;
+        padding: 15px 40px;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        color: white;
+        background: red;
+        box-shadow: 0 0 25px pink;
+    }
+    .btn:hover {
+        background: pink;
+        color: red;
+    }
+    #noBtn {
+        position: absolute;
+    }
+    /* Falling petals */
+    .petal {
+        position: fixed;
+        top: -10px;
+        font-size: 25px;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        to { transform: translateY(110vh); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Romantic Video Background -->
+<video autoplay muted loop>
+    <source src="https://cdn.pixabay.com/video/2016/08/04/14054-177374146_large.mp4" type="video/mp4">
+</video>
+
+<h1>Aliya Malik ❤️ MãLïK Uzair Mk</h1>
+
+<!-- Large DPs -->
+<div class="dp-container">
+    <img src="https://i.ibb.co/Swqw6mGp/ic-launcher.jpg" alt="Uzair" class="dp">
+    <div class="heart-symbol">❤️</div>
+    <img src="https://i.ibb.co/fYkGCNNC/20250324-213922.pngg" alt="Aliya" class="dp">
+</div>
+
+<div class="message">From the moment I met you, my life changed forever... 💖</div>
+
+<button class="btn" onclick="showProposal()">Click to See My Question</button>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showProposal() {
+    document.getElementById("bgMusic").play();
+
+    let yesBtn = document.createElement("button");
+    yesBtn.innerText = "Yes ❤️";
+    yesBtn.className = "btn";
+    yesBtn.onclick = () => alert("Yay! I love you Aliya Malik ❤️🎆");
+    document.body.appendChild(yesBtn);
+
+    let noBtn = document.createElement("button");
+    noBtn.id = "noBtn";
+    noBtn.innerText = "No 💔";
+    noBtn.className = "btn";
+    noBtn.style.left = "50%";
+    noBtn.style.top = "60%";
+    noBtn.onmouseover = () => {
+        noBtn.style.left = Math.random() * window.innerWidth + "px";
+        noBtn.style.top = Math.random() * window.innerHeight + "px";
+    };
+    document.body.appendChild(noBtn);
+}
+
+// Falling petals animation
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerHTML = Math.random() > 0.5 ? "🌹" : "❤️";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(petal);
+    setTimeout(() => { petal.remove(); }, 8000);
+}
+setInterval(createPetal, 200);
+</script>
+
+</body>
+</html>
