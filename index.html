@@ -5,130 +5,109 @@
 <title>Aliya Malik ❤️ MãLïK Uzair Mk</title>
 <style>
     body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
+        margin: 0; padding: 0; height: 100%;
         font-family: Arial, sans-serif;
-        text-align: center;
-        color: white;
+        overflow: hidden; text-align: center;
+        color: white; background: black;
     }
-    /* Video Background */
-    video {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        object-fit: cover;
-        z-index: -1;
+
+    /* Background Slideshow */
+    .slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-size: cover; background-position: center; animation: slideShow 30s infinite; }
+    @keyframes slideShow {
+        0%,20%{background-image:url('https://i.ibb.co/Swqw6mGp/ic-launcher.jpg');}
+        25%,45%{background-image:url('https://i.ibb.co/fYkGCNNC/20250324-213922.pngg');}
+        50%,70%{background-image:url('https://i.ibb.co/NnTgK9v/love1.jpg');}
+        75%,100%{background-image:url('https://i.ibb.co/4T6mVmF/love2.jpg');}
     }
-    /* Heading */
-    h1 {
-        font-size: 3em;
-        text-shadow: 0 0 10px red, 0 0 20px pink, 0 0 30px red;
-        animation: glow 2s infinite alternate;
-        margin-top: 10px;
-    }
-    @keyframes glow {
-        from { text-shadow: 0 0 10px red, 0 0 20px pink; }
-        to { text-shadow: 0 0 30px pink, 0 0 50px red; }
-    }
-    /* DP Container */
-    .dp-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        margin-top: 20px;
-    }
-    .dp {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid white;
-        box-shadow: 0 0 30px pink;
-    }
-    .heart-symbol {
-        font-size: 4em;
-        animation: heartbeat 1s infinite alternate;
-    }
-    @keyframes heartbeat {
-        from { transform: scale(1); }
-        to { transform: scale(1.3); color: red; }
-    }
-    /* Message */
-    .message {
-        font-size: 1.8em;
-        margin-top: 20px;
-        opacity: 0;
-        animation: fadeIn 3s forwards 2s;
-    }
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
+
+    /* Typing Animation */
+    h1 { font-size: 2.5em; overflow: hidden; white-space: nowrap; border-right: 4px solid white; width: 0; margin: 20px auto; animation: typing 6s steps(40,end) forwards, blink 0.6s step-end infinite; text-shadow: 0 0 10px red, 0 0 20px pink; }
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* DPs with Glitter */
+    .dp-container { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 10px; }
+    .dp { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 0 20px pink, 0 0 40px red; position: relative; }
+    .dp::after { content: ""; position: absolute; top: -5px; left: -5px; width: 190px; height: 190px; border-radius: 50%; border: 2px dashed gold; animation: spin 5s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 3D Heart */
+    .heart-3d { font-size: 60px; animation: rotate 3s linear infinite; margin-top: 15px; }
+    @keyframes rotate { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+
+    /* Quotes */
+    .quotes { font-size: 1.5em; margin-top: 15px; font-style: italic; text-shadow: 0 0 10px pink; }
+
+    /* Animations */
+    .floating-heart { position: fixed; font-size: 20px; color: red; animation: floatHeart 5s linear infinite; }
+    @keyframes floatHeart { 0% { transform: translateY(100vh); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
+
+    .star { position: fixed; top: -10px; color: yellow; font-size: 15px; animation: starFall linear infinite; }
+    @keyframes starFall { to { transform: translateY(110vh); opacity: 0; } }
+
+    .balloon { position: fixed; bottom: -100px; font-size: 30px; animation: floatUp 8s linear infinite; }
+    @keyframes floatUp { to { transform: translateY(-120vh); } }
+
     /* Buttons */
-    .btn {
-        margin-top: 30px;
-        font-size: 1.5em;
-        padding: 15px 40px;
-        border: none;
-        cursor: pointer;
-        border-radius: 15px;
-        color: white;
-        background: red;
-        box-shadow: 0 0 25px pink;
-    }
-    .btn:hover {
-        background: pink;
-        color: red;
-    }
-    #noBtn {
-        position: absolute;
-    }
-    /* Falling petals */
-    .petal {
-        position: fixed;
-        top: -10px;
-        font-size: 25px;
-        animation: fall linear infinite;
-    }
-    @keyframes fall {
-        to { transform: translateY(110vh); opacity: 0; }
-    }
+    .btn { margin-top: 20px; font-size: 1.5em; padding: 12px 35px; border: none; cursor: pointer; border-radius: 15px; color: white; background: red; box-shadow: 0 0 20px pink; }
+    #noBtn { position: absolute; }
+
+    /* Gift Box */
+    .gift-box { width: 100px; height: 100px; background: gold; margin: 20px auto; position: relative; cursor: pointer; animation: bounce 1s infinite; }
+    .gift-box::before, .gift-box::after { content: ""; position: absolute; background: red; }
+    .gift-box::before { width: 20px; height: 100%; left: 40px; }
+    .gift-box::after { height: 20px; width: 100%; top: 40px; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    /* Mouse Sparkle */
+    .sparkle { position: fixed; pointer-events: none; animation: fadeOut 1s forwards; }
+    @keyframes fadeOut { to { opacity: 0; transform: scale(0.5); } }
 </style>
 </head>
 <body>
 
-<!-- Romantic Video Background -->
-<video autoplay muted loop>
-    <source src="https://cdn.pixabay.com/video/2016/08/04/14054-177374146_large.mp4" type="video/mp4">
-</video>
+<div class="slideshow"></div>
 
 <h1>Aliya Malik ❤️ MãLïK Uzair Mk</h1>
 
-<!-- Large DPs -->
 <div class="dp-container">
-    <img src="https://i.ibb.co/Swqw6mGp/ic-launcher.jpg" alt="Uzair" class="dp">
-    <div class="heart-symbol">❤️</div>
-    <img src="https://i.ibb.co/fYkGCNNC/20250324-213922.pngg" alt="Aliya" class="dp">
+    <img src="https://i.ibb.co/Swqw6mGp/ic-launcher.jpg" class="dp">
+    <img src="https://i.ibb.co/fYkGCNNC/20250324-213922.pngg" class="dp">
 </div>
 
-<div class="message">From the moment I met you, my life changed forever... 💖</div>
+<div class="heart-3d">❤️</div>
+<div class="quotes" id="quoteBox">Love is life...</div>
+
+<div class="gift-box" onclick="openGift()"></div>
 
 <button class="btn" onclick="showProposal()">Click to See My Question</button>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function showProposal() {
-    document.getElementById("bgMusic").play();
+let quotes = [
+    "You are my today and all of my tomorrows ❤️",
+    "Tum meri zindagi ka wo hissa ho jo kabhi khatam nahi hota 💕",
+    "Every love story is beautiful, but ours is my favorite 💖",
+    "Tere bina zindagi adhuri lagti hai ❤️",
+    "You are the reason I believe in love 💞"
+];
+let qIndex = 0;
+setInterval(() => {
+    document.getElementById("quoteBox").innerText = quotes[qIndex];
+    qIndex = (qIndex + 1) % quotes.length;
+}, 5000);
 
+function showProposal() {
     let yesBtn = document.createElement("button");
     yesBtn.innerText = "Yes ❤️";
     yesBtn.className = "btn";
-    yesBtn.onclick = () => alert("Yay! I love you Aliya Malik ❤️🎆");
+    yesBtn.onclick = () => {
+        launchCelebration();
+        alert("💋 Kiss & Love Forever! 🎆 Yay! I love you Aliya Malik ❤️");
+    };
     document.body.appendChild(yesBtn);
 
     let noBtn = document.createElement("button");
@@ -136,25 +115,82 @@ function showProposal() {
     noBtn.innerText = "No 💔";
     noBtn.className = "btn";
     noBtn.style.left = "50%";
-    noBtn.style.top = "60%";
+    noBtn.style.top = "70%";
+    noBtn.onclick = () => noBtn.remove();
     noBtn.onmouseover = () => {
         noBtn.style.left = Math.random() * window.innerWidth + "px";
         noBtn.style.top = Math.random() * window.innerHeight + "px";
     };
     document.body.appendChild(noBtn);
+
+    // Extra Romantic Buttons
+    let btnTexts = [
+        {text: "I Love You ❤️", msg: "I love you so much, Aliya Malik ❤️"},
+        {text: "I Hug 🫂 You", msg: "A warm hug for you my love 🤗"},
+        {text: "I Kiss 💋 😚 You", msg: "Muaahhh 😘💋 Forever and ever"},
+        {text: "I Romance You", msg: "Every moment with you is pure romance ❤️‍🔥"},
+        {text: "Are You My Life?", msg: "Yes! You are my whole life ❤️"}
+    ];
+    btnTexts.forEach(b => {
+        let rb = document.createElement("button");
+        rb.innerText = b.text;
+        rb.style.display = "block";
+        rb.style.margin = "15px auto";
+        rb.style.fontSize = "1.8em";
+        rb.style.padding = "15px 40px";
+        rb.style.backgroundColor = "yellow";
+        rb.style.color = "black";
+        rb.style.border = "none";
+        rb.style.borderRadius = "15px";
+        rb.style.cursor = "pointer";
+        rb.onclick = () => alert(b.msg);
+        document.body.appendChild(rb);
+    });
 }
 
-// Falling petals animation
-function createPetal() {
-    const petal = document.createElement("div");
-    petal.className = "petal";
-    petal.innerHTML = Math.random() > 0.5 ? "🌹" : "❤️";
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.animationDuration = (3 + Math.random() * 5) + "s";
-    document.body.appendChild(petal);
-    setTimeout(() => { petal.remove(); }, 8000);
+// Celebration Animation
+function launchCelebration() {
+    let duration = 3 * 1000;
+    let end = Date.now() + duration;
+
+    (function frame() {
+        for (let i = 0; i < 10; i++) {
+            let confetti = document.createElement("div");
+            confetti.style.position = "fixed";
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.top = "-10px";
+            confetti.style.fontSize = "20px";
+            confetti.innerHTML = "🎉";
+            confetti.style.animation = "floatUp 3s linear";
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
+        let heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.innerHTML = "💥";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+
+        if (Date.now() < end) requestAnimationFrame(frame);
+    }());
 }
-setInterval(createPetal, 200);
+
+// Animations
+setInterval(() => { let h=document.createElement("div");h.className="floating-heart";h.innerHTML="❤️";h.style.left=Math.random()*100+"vw";document.body.appendChild(h);setTimeout(()=>h.remove(),5000);},500);
+setInterval(() => { let b=document.createElement("div");b.className="balloon";b.innerHTML="🎈";b.style.left=Math.random()*100+"vw";document.body.appendChild(b);setTimeout(()=>b.remove(),8000);},800);
+setInterval(() => { let s=document.createElement("div");s.className="star";s.innerHTML="⭐";s.style.left=Math.random()*100+"vw";document.body.appendChild(s);setTimeout(()=>s.remove(),5000);},600);
+
+function openGift(){ alert("🎁 Surprise! Will you marry me, Aliya Malik?"); }
+
+// Mouse sparkle
+document.addEventListener("mousemove", function(e){
+    let sp=document.createElement("div");
+    sp.className="sparkle"; sp.innerHTML="✨";
+    sp.style.left=e.pageX+"px"; sp.style.top=e.pageY+"px";
+    document.body.appendChild(sp);
+    setTimeout(()=>sp.remove(),1000);
+});
 </script>
 
 </body>
